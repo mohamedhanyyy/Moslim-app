@@ -1,8 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:moslim/core/constants.dart';
 
-import '../data/models/pray_time_model.dart';
-
 class DioHelper {
   static Dio? dio;
 
@@ -18,19 +16,9 @@ class DioHelper {
     );
   }
 
-  static  getData(Map<String, dynamic> params) async {
-     await dio!
-        .get('timingsByCity', queryParameters: params)
-        .then((value) {
-      PrayTimeModel? prayTimeModel;
-       prayTimeModel = PrayTimeModel.fromJson(value.data);
-       if (value.statusCode == 200) {
-         prayTimeModel=PrayTimeModel.fromJson(value.data);
-         print('done');
-         return value.data;
-      }
-
-
-     });
+  static getData(
+      {required String url, required Map<String, dynamic> params}) async {
+    var response = await dio!.get(url, queryParameters: params);
+    return response.data;
   }
 }

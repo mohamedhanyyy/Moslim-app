@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:moslim/business/providers/pray_time_provider.dart';
-import 'package:provider/provider.dart';
+import 'package:get/get.dart';
+
+import '../../controllers/pray_time_provider.dart';
 
 class PrayTimeScreen extends StatefulWidget {
   const PrayTimeScreen({Key? key}) : super(key: key);
@@ -10,13 +11,12 @@ class PrayTimeScreen extends StatefulWidget {
 }
 
 class _PrayTimeScreenState extends State<PrayTimeScreen> {
+  final PrayTimeController _controller = Get.put(PrayTimeController());
+
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      Provider.of<PrayTimeProvider>(context, listen: false)
-          .getPrayTime(country: 'Egypt', city: 'Cairo');
-    });
+    _controller.getPrayTime(country: 'Egypt', city: 'Cairo');
   }
 
   @override
