@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
 import 'package:moslim/data/models/pray_time_model.dart';
 import 'package:moslim/services/dio_helper.dart';
@@ -10,8 +11,10 @@ class PrayTimeController extends GetxController {
       'country': country,
       'city': city,
     }).then((value) {
-      prayTimeModel = PrayTimeModel.fromJson(value);
-      print(prayTimeModel!.data.date.gregorian.date);
+      prayTimeModel = PrayTimeModel.fromJson(value.data);
+      if (kDebugMode) {
+        print(prayTimeModel!.data.date.gregorian.date);
+      }
       update();
     });
   }

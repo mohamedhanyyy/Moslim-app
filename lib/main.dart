@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      home: const PrayTimeScreen(),
+      home: PrayTimeScreen(),
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),

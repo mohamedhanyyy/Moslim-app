@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:moslim/services/location.dart';
 
 import '../../controllers/pray_time_provider.dart';
 
@@ -16,7 +17,8 @@ class _PrayTimeScreenState extends State<PrayTimeScreen> {
   @override
   void initState() {
     super.initState();
-    _controller.getPrayTime(country: 'Egypt', city: 'Cairo');
+    LocationHelper.getCurrentLocation();
+    _controller.getPrayTime(country: LocationHelper.country!, city:  LocationHelper.city!);
   }
 
   @override
