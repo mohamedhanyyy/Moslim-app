@@ -4,8 +4,6 @@ import 'package:get/get.dart';
 import '../../controllers/pray_time_provider.dart';
 
 class PrayTimeScreen extends StatefulWidget {
-  const PrayTimeScreen({Key? key}) : super(key: key);
-
   @override
   State<PrayTimeScreen> createState() => _PrayTimeScreenState();
 }
