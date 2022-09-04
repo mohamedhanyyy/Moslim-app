@@ -5,8 +5,6 @@ import 'package:moslim/services/location.dart';
 import '../../controllers/pray_time_provider.dart';
 
 class PrayTimeScreen extends StatefulWidget {
-  const PrayTimeScreen({Key? key}) : super(key: key);
-
   @override
   State<PrayTimeScreen> createState() => _PrayTimeScreenState();
 }
